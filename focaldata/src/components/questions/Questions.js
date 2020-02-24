@@ -8,24 +8,23 @@ const Questions = props => {
   useEffect(() => {
     async function getSurveyData() {
       if (props.data && props.data.length !== 0) {
-        setData(data[props.match.params.id]);
+        setData(props.data[props.match.params.id]);
+        console.log(props.data);
       } else {
         const sData = await props.getData();
         console.log(sData);
-        setData(sData.surveys);
+        setData(sData.surveys[props.match.params.id]);
       }
-      console.log(data[props.match.params.id]);
     }
     getSurveyData();
   }, []);
   const getSurveyData = () => {};
-  console.log(props.match.params.id);
   return (
     <div>
-      {/* <div>{data.title}</div>
+      <div>{data.title}</div>
       {data.questions.map(question => (
-        <Question key={question.questionid} />
-      ))} */}
+        <Question key={question.questionid} question={question} />
+      ))}
     </div>
   );
 };
