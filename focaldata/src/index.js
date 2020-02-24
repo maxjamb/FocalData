@@ -6,10 +6,10 @@ import thunk from "redux-thunk";
 import { combineReducers, createStore, compose, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import * as reducers from "./state/reducers";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const allReducers = combineReducers({
-  data: reducers.dataReducer,
-  formData: reducers.inputFormReducer
+  data: reducers.dataReducer
 });
 
 const store = createStore(
@@ -23,7 +23,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
