@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import Card from "./Card";
+import { getData } from "../state/actionCreators";
+import { Router } from "react-router-dom";
 
-export function Surveys({ data }) {
-  console.log(data);
+export function Surveys({ data, getData }) {
+  useEffect(() => {
+    getData();
+  }, []);
+  console.log(getData);
   return (
     <div>
       <div className="list">
@@ -15,4 +20,4 @@ export function Surveys({ data }) {
     </div>
   );
 }
-export default connect(state => state, actionCreators)(Surveys);
+export default connect(state => state, { getData })(Surveys);

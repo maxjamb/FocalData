@@ -1,15 +1,11 @@
 import React from "react";
-import * as actionCreators from "../state/actionCreators";
-import { dataReducer } from "../state/reducers";
-
-import { connect } from "react-redux";
-import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
 
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-export function Card({ data }) {
+export function Card({ data, navigateToQuestions }) {
   return (
     <>
       <h1>{data.title}</h1>
@@ -22,7 +18,8 @@ export function Card({ data }) {
       <p style={{ fontSize: "25px" }}>
         <ScheduleIcon /> {(data.title || "").slice(0, 10)} <br />
         <LocationOnIcon /> {data.title} <br />
-        <AccountCircleIcon /> <a href={"/user/" + data.title}>{data.title}</a>
+        <AccountCircleIcon />{" "}
+        <NavLink to={`/surveys/${data.surveyId}`}>{data.title}</NavLink>
       </p>
       <p style={{ fontSize: "25px" }}>{data.title}</p>
     </>

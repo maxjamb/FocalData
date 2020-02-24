@@ -1,12 +1,12 @@
-import React from "react";
-import Answers from "./answers";
+import React, { useState } from "react";
+import Answer from "./Answer";
 
 const Answers = () => {
   const [answers, setAnswers] = useState([]);
   return (
     <div>
-      {Answers.map(answers => (
-        <answers key={answers.answersId} />
+      {answers.map(answer => (
+        <Answer key={answers.answersId} answer={answer} />
       ))}
     </div>
   );

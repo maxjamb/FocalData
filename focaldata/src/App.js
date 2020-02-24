@@ -3,7 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Surveys from "./components/Surveys";
-import Survey from "./components/Survey";
+import Questions from "./components/questions/Questions";
+import Answers from "./components/answers/Answers";
 import Container from "@material-ui/core/Container";
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
         <Container maxWidth="lg">
           <Switch>
             <Route exact path="/" component={Surveys} />
-            <Route path="/survey/:id" component={Survey} />
+            <Route path="/surveys/:id" component={Questions} />
+            <Route path="/questions/:id" component={Answers} />
           </Switch>
         </Container>
       </Router>

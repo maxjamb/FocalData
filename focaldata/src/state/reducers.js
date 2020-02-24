@@ -6,7 +6,7 @@ export function dataReducer(state = initState, action) {
 
   switch (type) {
     case types.GET_DATA:
-      return [...state, ...payload];
+      return [...state, ...payload.surveys];
 
     default:
       return state;
