@@ -14,7 +14,7 @@ function App() {
         <Container maxWidth="lg">
           <Switch>
             <Route exact path="/" component={Surveys} />
-            <Route path="/surveys/:id" component={Questions} />
+            <Route exact path="/surveys/:id" component={Questions} />
             <Route
               path="/surveys/:surveyId/questions/:id/answers"
               component={Answers}

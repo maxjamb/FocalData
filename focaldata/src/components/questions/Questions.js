@@ -8,12 +8,12 @@ const Questions = props => {
   useEffect(() => {
     async function getSurveyData() {
       if (props.data && props.data.length !== 0) {
-        setData(props.data[props.match.params.id]);
+        setData(props.data[props.match.params.id - 1]);
         console.log(props.data);
       } else {
         const sData = await props.getData();
         console.log(sData);
-        setData(sData.surveys[props.match.params.id]);
+        setData(sData.surveys[props.match.params.id - 1]);
       }
     }
     getSurveyData();
@@ -24,7 +24,7 @@ const Questions = props => {
       <div>{data.title}</div>
       {data.questions.map(question => (
         <Question
-          key={question.questionid}
+          key={question.questionId}
           question={question}
           surveyId={[props.match.params.id]}
         />
