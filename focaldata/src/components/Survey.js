@@ -5,16 +5,6 @@ import Card from "./Card";
 import { getData } from "../state/actionCreators";
 
 export function Survey({ data, getData }) {
-  console.log(data);
-  //   const formatData = () => {
-  // if (!data || data.length === 0)
-  //   const formattedData = () => {
-  //     {
-  //     }
-  //   };
-  //   return formattedData;
-  //   };
-
   return (
     <div>
       <div className="list">

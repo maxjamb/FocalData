@@ -23,7 +23,11 @@ const Questions = props => {
     <div>
       <div>{data.title}</div>
       {data.questions.map(question => (
-        <Question key={question.questionid} question={question} />
+        <Question
+          key={question.questionid}
+          question={question}
+          surveyId={[props.match.params.id]}
+        />
       ))}
     </div>
   );

@@ -15,7 +15,10 @@ function App() {
           <Switch>
             <Route exact path="/" component={Surveys} />
             <Route path="/surveys/:id" component={Questions} />
-            <Route path="/questions/:id/answers" component={Answers} />
+            <Route
+              path="/surveys/:surveyId/questions/:id/answers"
+              component={Answers}
+            />
           </Switch>
         </Container>
       </Router>

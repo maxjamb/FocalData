@@ -16,12 +16,10 @@ export function Card({ data, navigateToQuestions }) {
       />
       <br />
       <p style={{ fontSize: "25px" }}>
-        <ScheduleIcon /> {(data.title || "").slice(0, 10)} <br />
-        <LocationOnIcon /> {data.title} <br />
         <AccountCircleIcon />{" "}
-        <NavLink to={`/surveys/${data.surveyId}`}>{data.title}</NavLink>
+        <NavLink to={`/surveys/${data.surveyId - 1}`}>{data.title}</NavLink>
       </p>
-      <p style={{ fontSize: "25px" }}>{data.title}</p>
+      <br />
     </>
   );
 }
