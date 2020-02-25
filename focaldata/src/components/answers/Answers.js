@@ -7,6 +7,7 @@ import { MyResponsivePie } from "../charts/pie";
 const Answers = props => {
   const [answers, setAnswers] = useState({ answerOptions: [] });
   const [pieData, setPieData] = useState([]);
+  const [pieFill, setPieFill] = useState([]);
   useEffect(() => {
     async function getSurveyData() {
       const surveyId = props.match.params.surveyId;
@@ -15,14 +16,11 @@ const Answers = props => {
       if (props.data && props.data.length !== 0) {
         answersToQuestion = props.data[surveyId - 1].questions[questionId - 1];
         setAnswers(answersToQuestion);
-        console.log(props.data);
       } else {
         const sData = await props.getData();
         console.log(sData);
         answersToQuestion =
           sData.surveys[surveyId - 1].questions[questionId - 1];
-        console.log(answersToQuestion);
-
         setAnswers(answersToQuestion);
       }
       const pie_data = answersToQuestion.answerOptions.map(option => {
@@ -32,24 +30,32 @@ const Answers = props => {
           label: option.text
         };
       });
-      console.log(pie_data);
-      console.log(answers);
-
+      const pie_fill = answersToQuestion.answerOptions.map(option => {
+        return {
+          match: {
+            id: option.text
+          },
+          id: "dots"
+        };
+      });
       setPieData(pie_data);
+      setPieFill(pie_fill);
     }
     getSurveyData();
   }, []);
-  const getSurveyData = () => {};
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div>
-        {answers.answerOptions.map(answer => (
-          <Answer key={answer.answerOption} answer={answer} />
-        ))}
-      </div>
-      <div style={{ height: "500px", width: "500px" }}>
-        <MyResponsivePie data={pieData} />
+    <div>
+      <h4 style={{ textAlign: "center" }}>{answers.questionTitle}</h4>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>
+          {answers.answerOptions.map((answer, index) => (
+            <Answer key={answer.answerOption} answer={answer} index={index} />
+          ))}
+        </div>
+        <div style={{ height: "500px", width: "500px" }}>
+          <MyResponsivePie data={pieData} file={pieFill} />
+        </div>
       </div>
     </div>
   );
