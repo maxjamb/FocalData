@@ -53,7 +53,7 @@ const Answers = props => {
             <Answer key={answer.answerOption} answer={answer} index={index} />
           ))}
         </div>
-        <div style={{ height: "500px", width: "500px" }}>
+        <div style={{ height: "450px", width: "450px" }}>
           <MyResponsivePie data={pieData} file={pieFill} />
         </div>
       </div>

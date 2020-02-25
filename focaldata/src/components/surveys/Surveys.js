@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import * as actionCreators from "../state/actionCreators";
-import Card from "./Card";
-import { getData } from "../state/actionCreators";
-import { Router } from "react-router-dom";
+import * as actionCreators from "../../state/actionCreators";
+import Card from "../Card";
+import { getData } from "../../state/actionCreators";
 
 export function Surveys({ data, getData }) {
   useEffect(() => {

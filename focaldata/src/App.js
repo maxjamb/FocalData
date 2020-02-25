@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Surveys from "./components/Surveys";
+import Surveys from "./components/surveys/Surveys";
 import Questions from "./components/questions/Questions";
 import Answers from "./components/answers/Answers";
 import Container from "@material-ui/core/Container";

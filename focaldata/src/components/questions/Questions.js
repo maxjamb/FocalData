@@ -21,7 +21,7 @@ const Questions = props => {
   const getSurveyData = () => {};
   return (
     <div>
-      <div>{data.title}</div>
+      <h1 style={{ textAlign: "center", color: "#ff6e5a" }}>{data.title}</h1>
       {data.questions.map(question => (
         <Question
           key={question.questionId}

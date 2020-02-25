@@ -15,6 +15,8 @@ export const MyResponsivePie = ({ data, fill }) => (
     colors={{ scheme: "nivo" }}
     borderWidth={1}
     borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
+    enableRadialLabels={true}
+    radialLabel="label"
     radialLabelsSkipAngle={10}
     radialLabelsTextXOffset={6}
     radialLabelsTextColor="#333333"
