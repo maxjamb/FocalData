@@ -18,7 +18,6 @@ const Answers = props => {
         setAnswers(answersToQuestion);
       } else {
         const sData = await props.getData();
-        console.log(sData);
         answersToQuestion =
           sData.surveys[surveyId - 1].questions[questionId - 1];
         setAnswers(answersToQuestion);
@@ -53,7 +52,7 @@ const Answers = props => {
             <Answer key={answer.answerOption} answer={answer} index={index} />
           ))}
         </div>
-        <div style={{ height: "450px", width: "450px" }}>
+        <div style={{ height: "450px", width: "575px" }}>
           <MyResponsivePie data={pieData} file={pieFill} />
         </div>
       </div>

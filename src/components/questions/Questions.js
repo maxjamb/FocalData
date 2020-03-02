@@ -9,10 +9,8 @@ const Questions = props => {
     async function getSurveyData() {
       if (props.data && props.data.length !== 0) {
         setData(props.data[props.match.params.id - 1]);
-        console.log(props.data);
       } else {
         const sData = await props.getData();
-        console.log(sData);
         setData(sData.surveys[props.match.params.id - 1]);
       }
     }
